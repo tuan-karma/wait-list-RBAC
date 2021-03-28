@@ -1,0 +1,23 @@
+<h1>Show Party</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @party.name %>
+  </li>
+
+  <li>
+    <strong>Size:</strong>
+    <%= @party.size %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @party.status %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.party_path(@conn, :edit, @party) %></span>
+<span><%= link "Back", to: Routes.party_path(@conn, :index) %></span>

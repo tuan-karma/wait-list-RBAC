@@ -1,0 +1,23 @@
+<h1>Show Rule</h1>
+
+<ul>
+
+  <li>
+    <strong>Role:</strong>
+    <%= @rule.role %>
+  </li>
+
+  <li>
+    <strong>Resource:</strong>
+    <%= @rule.resource %>
+  </li>
+
+  <li>
+    <strong>Permissions:</strong>
+    <%= @rule.permissions %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.rule_path(@conn, :edit, @rule) %></span>
+<span><%= link "Back", to: Routes.rule_path(@conn, :index) %></span>

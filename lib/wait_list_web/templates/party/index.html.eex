@@ -1,0 +1,68 @@
+<h1>Party Reservation</h1>
+
+<div class="container">
+<%= form_for @changeset, Routes.party_path(@conn, :create), fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+  <%= hidden_input :redirect, :path, value: Routes.party_path(@conn, :index) %>
+
+  <div class="row">
+    <div class="column">
+      <%= text_input f, :name, placeholder: "Name", required: true %>
+      <%= error_tag f, :name %>
+    </div>
+
+    <div class="column">
+      <%= number_input f, :size, placeholder: "Size of Party", required: true %>
+      <%= error_tag f, :size %>
+    </div>
+
+    <div class="column column-20">
+      <%= submit "Reserve" %>
+    </div>
+  </div>
+<% end %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Status</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for party <- @parties do %>
+    <tr>
+      <td><%= party.name %></td>
+      <td><%= party.size %></td>
+      <td><%= party.status %></td>
+
+      <td>
+        <span class="row">
+          <span class="column">
+            <%= form_for @changeset, Routes.party_path(@conn, :update, party), [method: :put], fn f -> %>
+              <%= hidden_input :redirect, :path, value: Routes.party_path(@conn, :index) %>
+              <%= hidden_input f, :status, value: "seated" %>
+              <%= submit "Seat", class: "button-outline" %>
+            <% end %>
+          </span>
+          <span class="column">
+            <%= form_for @changeset, Routes.party_path(@conn, :update, party), [method: :put], fn f -> %>
+              <%= hidden_input :redirect, :path, value: Routes.party_path(@conn, :index) %>
+              <%= hidden_input f, :status, value: "cancelled" %>
+              <%= submit "Cancel" %>
+            <% end %>
+          </span>
+        </span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

@@ -1,0 +1,24 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= label f, :email %>
+  <%= email_input f, :email, disabled: true %>
+  <%= error_tag f, :email %>
+
+  <%= label f, :role %>
+  <%= select f, :role, ["kiosk", "server", "host", "manager"] %>
+  <%= error_tag f, :role %>
+
+  <div>
+    <%= submit "Save" %>
+  </div>
+<% end %>
+
+<p>
+  <%= link "Home", to: Routes.page_path(@conn, :index) %> |
+  <%= link "Back", to: Routes.user_path(@conn, :index) %>
+</p>
