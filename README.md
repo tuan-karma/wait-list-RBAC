@@ -36,11 +36,12 @@ The implement here is without live-view and with following features:
   * `git push -u origin main`
 
 ## Screenshots
-  ![Rules Table in Postgres database](docs/rules_table_DB.png)
-  Fig. 1. Rules Table in Postgres database
+
+  <center>![Rules Table in Postgres database](docs/rules_table_DB.png)</center>
+  <center>Fig. 1. Rules Table in Postgres database</center>
 
   ![Screen shot of Rule management menu](docs/rules_management_window.png)
-  Fig. 2. Screen shot of Rule management menu
+  *Fig. 2. Screen shot of Rule management menu*
 
 ## Lưu ý
   * Một số chi tiết implement trong app này mang tính thử nghiệm và biểu diễn công nghệ. Người đọc sẽ cảm thấy các chỗ này hơi thừa. Ví dụ như các chỗ dùng ecto_enum và sử dụng hàm hidden_input trong template để chứa đường dẫn redirect[path] nhằm chuyển hướng về trang hiện tại khi xảy ra lỗi unauthorized.
