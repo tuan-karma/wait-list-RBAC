@@ -1,5 +1,5 @@
-          ![Wait List Screen Shot](docs/wait_list_screenshot.png)
-          **Fig. 1.** A screen shot of wait_list reservation app
+![Wait List Screen Shot](docs/wait_list_screenshot.png)
+**Fig. 1.** A screen shot of wait_list reservation app
 
 # WaitList
 
