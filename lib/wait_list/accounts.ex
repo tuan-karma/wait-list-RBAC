@@ -9,54 +9,20 @@ defmodule WaitList.Accounts do
 
   ## Database getters
 
-  @doc """
-  Gets a user by email.
+  def list_users do
+    Repo.all(User)
+  end
 
-  ## Examples
-
-      iex> get_user_by_email("foo@example.com")
-      %User{}
-
-      iex> get_user_by_email("unknown@example.com")
-      nil
-
-  """
   def get_user_by_email(email) when is_binary(email) do
     Repo.get_by(User, email: email)
   end
 
-  @doc """
-  Gets a user by email and password.
-
-  ## Examples
-
-      iex> get_user_by_email_and_password("foo@example.com", "correct_password")
-      %User{}
-
-      iex> get_user_by_email_and_password("foo@example.com", "invalid_password")
-      nil
-
-  """
   def get_user_by_email_and_password(email, password)
       when is_binary(email) and is_binary(password) do
     user = Repo.get_by(User, email: email)
     if User.valid_password?(user, password), do: user
   end
 
-  @doc """
-  Gets a single user.
-
-  Raises `Ecto.NoResultsError` if the User does not exist.
-
-  ## Examples
-
-      iex> get_user!(123)
-      %User{}
-
-      iex> get_user!(456)
-      ** (Ecto.NoResultsError)
-
-  """
   def get_user!(id), do: Repo.get!(User, id)
 
   ## User registration
@@ -93,6 +59,24 @@ defmodule WaitList.Accounts do
   end
 
   ## Settings
+
+  @doc """
+  Updates a users role.
+
+  ## Examples
+
+      iex> update_user_role(user, %{role: "kiosk"})
+      {:ok, %User{role: "kiosk"}}
+
+      iex> update_user_role(user, %{field: bad_value})
+      {:error, ...}
+
+  """
+  def update_user_role(%User{} = user, attrs) do
+    user
+    |> User.role_changeset(attrs)
+    |> Repo.update()
+  end
 
   @doc """
   Returns an `%Ecto.Changeset{}` for changing the user email.

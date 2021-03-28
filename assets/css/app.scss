@@ -29,3 +29,56 @@
 .alert:empty {
   display: none;
 }
+
+.invalid-feedback {
+  color: #f56565;
+  font-style: italic;
+}
+
+/* Extending The Buttons */
+/* Custom color */
+.button-black {
+  background-color: black;
+  border-color: black;
+}
+.button-black.button-clear,
+.button-black.button-outline {
+  background-color: transparent;
+  color: black;
+}
+.button-black.button-clear {
+  border-color: transparent;
+}
+
+.button-orange {
+  background-color: orange;
+  border-color: orange;
+}
+.button-orange.button-outline {
+  background-color: transparent;
+  color: orange;
+}
+
+.button-blue-500 {
+  background-color: #2196F3;
+  border-color: #2196F3;
+}
+.button-blue-500.button-outline {
+  background-color: transparent;
+  color: #2196F3;
+}
+/* Custom size */
+.button-small {
+  font-size: .8rem;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  padding: 0 1.5rem;
+}
+
+.button-large {
+  font-size: 1.4rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  padding: 0 2rem;
+}
+

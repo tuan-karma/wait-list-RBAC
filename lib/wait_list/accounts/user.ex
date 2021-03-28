@@ -5,13 +5,22 @@ defmodule WaitList.Accounts.User do
   @derive {Inspect, except: [:password]}
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
+  @roles ~w(kiosk server host manager)
   schema "users" do
     field :email, :string
     field :password, :string, virtual: true
     field :hashed_password, :string
     field :confirmed_at, :naive_datetime
 
+    field :role, :string, default: "kiosk"
+
     timestamps()
+  end
+
+  def role_changeset(user_or_changeset, attrs) do
+    user_or_changeset
+    |> Ecto.Changeset.cast(attrs, [:role])
+    |> Ecto.Changeset.validate_inclusion(:role, @roles)
   end
 
   @doc """
