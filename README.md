@@ -1,3 +1,6 @@
+          ![Wait List Screen Shot](docs/wait_list_screenshot.png)
+          **Fig. 1.** A screen shot of wait_list reservation app
+
 # WaitList
 
 This wait list app is an experimented implement that imitates [KnowThen's WaitList App](https://github.com/knowthen/elixir_authorization_tutorial).
@@ -37,13 +40,13 @@ The implement here is without live-view and with following features:
 
 ## Screenshots
 
-  ![Rules Table in Postgres database](docs/rules_table_DB.png)</center>
+  ![Rules Table in Postgres database](docs/rules_table_DB.png)
 
-  **Fig. 1.** Rules Table in Postgres database</center>
+  **Fig. 2.** Rules Table in Postgres database
 
   ![Screen shot of Rule management menu](docs/rules_management_window.png)
 
-  **Fig. 2.** Screen shot of Rule management menu
+  **Fig. 3.** Screen shot of Rule management menu
 
 ## Lưu ý
   * Một số chi tiết implement trong app này mang tính thử nghiệm và biểu diễn công nghệ. Người đọc sẽ cảm thấy các chỗ này hơi thừa. Ví dụ như các chỗ dùng ecto_enum và sử dụng hàm hidden_input trong template để chứa đường dẫn redirect[path] nhằm chuyển hướng về trang hiện tại khi xảy ra lỗi unauthorized.
