@@ -9,7 +9,7 @@ The implement here is without live-view and with following features:
   * RBAC using DB table (role, access): access_control_rules = Roles & Permissions ~~belongs to user~~
   * Use phx.gen.auth for authentication
   * Keep minimal css as an origin phx.new (aka miligram css)
-  * Use Kaffy admin tool to manage/edit/control the access_control_rules, user_id --> user
+  * Use Kaffy admin tool to manage/edit/control the access_control_rules, user_id --> user (*haven't done yet*)
 
 ## Initial Steps to generate the app
 

@@ -5,8 +5,17 @@ defmodule WaitList.Authorization do
 
   import Ecto.Query, warn: false
   alias WaitList.Repo
-
   alias WaitList.Authorization.Rule
+
+  # Example: Authorization.can?(role, "Read", resource)
+  def can?(role, action, resource) do
+    rule = Rule |> Repo.get_by(role: role, resource: resource)
+    permissions = rule && Map.get(rule, :permissions)
+    # return nil or true or false:
+    permissions && action in permissions
+  end
+
+  ## Database CRUD (auto gen)
 
   @doc """
   Returns the list of rules.
@@ -100,13 +109,5 @@ defmodule WaitList.Authorization do
   """
   def change_rule(%Rule{} = rule, attrs \\ %{}) do
     Rule.changeset(rule, attrs)
-  end
-
-  # Example: Authorization.can?(role, "Read", resource)
-  def can?(role, action, resource) do
-    rule = Rule |> Repo.get_by(role: role, resource: resource)
-    permissions = rule && Map.get(rule, :permissions)
-    # return nil or true or false:
-    permissions && action in permissions
   end
 end
