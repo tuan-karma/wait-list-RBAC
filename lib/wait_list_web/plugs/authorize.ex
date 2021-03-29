@@ -25,6 +25,8 @@ defmodule WaitListWeb.Authorize do
     |> put_flash(:error, "You're not authorized to do that!")
     |> redirect(to: redirect_path || Routes.page_path(conn, :index))
     |> halt()
+
+    # status 403
   end
 
   defp check(:index, role, resource) do
